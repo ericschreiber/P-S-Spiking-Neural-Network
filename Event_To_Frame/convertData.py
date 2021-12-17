@@ -5,7 +5,7 @@ import cv2
 import os
 import matplotlib
 
-numbers = [str(0), str(1), str(2), str(3)]
+numbers = [str(0), str(1), str(2), str(3), str(4), str(5), str(6), str(7), str(8), str(9)]
 
 for num in numbers:
     #path = r'C:\Users\erics\Documents\Programme\PundS_Spiking_Neural_Networks\Data\Train\Train\5'
@@ -63,10 +63,13 @@ for num in numbers:
 
             _, x_dim, y_dim = video_dvs.shape
 
-            # Save numpy arrays as frames in order to see if you can clearly recognise the digits from the data
 
-            filename = 'C:/Users/erics/Documents/Programme/PundS_Spiking_Neural_Networks/Event_To_Frame/Converted/Train/' + num + '/frame' + filenames[iterator] + '.png'
-            matplotlib.image.imsave(filename, video_dvs[0])
+            # Save numpy arrays as frames in order to see if you can clearly recognise the digits from the data
+            if x_dim == 34:
+                filename = 'C:/Users/erics/Documents/Programme/PundS_Spiking_Neural_Networks/Event_To_Frame/Converted/Train/' + num + '/frame' + filenames[iterator] + '.png'
+                matplotlib.image.imsave(filename, video_dvs[0])
+            else:
+                print("Error in frame x_dim = 33")
 
         except:
             print("Error in frame " + filenames[iterator])
